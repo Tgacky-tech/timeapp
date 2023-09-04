@@ -1,0 +1,49 @@
+<div>
+    <form action="/tasks/<%= @task.id %>" method="post" class="formaction">
+      <div class="form">
+        <p class="title">作業を編集する</p>
+        <div class="formbox">
+          <p>作業名</p>
+          <input type="text" name="name" placeholder="作業名" class="c-form-text" />
+        </div>
+        <div class="formbox">
+          <p>カテゴリー</p>
+          <% if @user != nil %>
+            <% @categories.each do |category|%>
+              <div class="one-category">
+                <i class="fa-light fa-circle-o" style="color: #ff0000;"></i>
+                <input type="radio" name="category_id" value="<%= category[:name] %>" class="category-item category-<%= category[:color] %>" data-id="<%= category[:id] %>"><%= category[:name] %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="formbox">
+          <p>開始時刻</p>
+          <input id="myPicker" type="text" name="start_time">
+        </div>
+        <div class="formbox">
+          <p>終了時刻</p>
+          <input id="myPicker2" type="text" name="finish_time">
+        </div>
+      </div>
+      <input type="submit" value="編集を確定する" class="btn-flat-border send-form">
+  </form>
+  <div class="one-category">
+    <div class="category-form incategory-form">
+      <form action="/category/new" method="post">
+        <input type="text" name="name" placeholder="カテゴリー名">
+        <select name="color">
+          <option value="red">赤</option>
+          <option value="blue">青</option>
+          <option value="green">緑</option>
+          <option value="yellow">黄色</option>
+          <option value="black">黒</option>
+        </select>
+        <input id="sendbox" type="submit" value="カテゴリー作成" class="btn-flat-border">
+      </form>
+    </div>
+  </div>
+  <!-- timedropper init -->
+  <script>$('#myPicker').timeDropper();</script>
+  <script>$('#myPicker2').timeDropper();</script>
+</div>

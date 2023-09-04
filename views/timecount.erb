@@ -1,0 +1,35 @@
+<form action="/task/new" method="post" class="formaction">
+  <div class="form">
+    <div class="form-left">
+    <div class="formbox">
+      <h class="title left-border">Task Name</h>
+      <% if @content == nil %>
+      <input type="text" name="name" placeholder="作業名" class="c-form-text">
+      <% else %>
+      <input type="text" name="name" placeholder="作業名" class="c-form-text" value="<%= @content.name %>">
+      <% end %>
+    </div>
+    <div class="formbox">
+      <h class="title left-border">Category</h>
+      <% if @user != nil && @categories != nil %>
+        <% @categories.each do |category|%>
+          <div class="one-category category-<%= category.color %>">
+            <i class="fa-light fa-circle-o" style="color: <%= category.color %>;"></i>
+            <input type="radio" name="category_id" value="<%= category[:id] %>" class="category-item category-<%= category[:color] %>" data-id="<%= category[:id] %>"><%= category[:name] %>
+          </div>
+        <% end %>
+      <% end %>
+      <a href="/category" class="btn-flat-border send-form">カテゴリー編集・追加</a>
+    </div>
+    </div>
+    <div class="form-right">
+    <div class="formbox">
+      <h class="title left-border">Start Time<br></h>
+      <input id="myPicker" type="text" name="start_time">
+    </div>
+  <div class="formbox">
+  <input type="submit" value="作業を開始する" class="btn btn--orange btn--circle btn--circle-a btn--shadow">
+  </div>
+  </div>
+</form>
+<script>$('#myPicker').timeDropper();</script>

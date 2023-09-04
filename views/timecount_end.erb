@@ -1,0 +1,14 @@
+<form action="/task/insert" method="post" class="formaction">
+  <div class="form">
+    <font size="6">作業を終了する</font>
+    <div class="detailbox">作業名
+      <%= @lasttask.name%>
+    </div>
+    <div class="detailbox">開始時間
+      <%= @lasttask.start_time%>
+    </div>
+    <!--<div class="detailbox">経過時間-->
+    <!--</div>-->
+    <input id="sendbox" type="submit" value="作業を終了する" class="btn-flat-border">
+  </div>
+</form>

@@ -1,0 +1,42 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://use.fontawesome.com/releases/v6.3.0/css/all.css" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
+  <title>タイム管理アプリ</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/signin.css">
+  <script src="/assets/javascript/signin.js"></script>
+</head>
+  
+<hgroup>
+  <img src="/assets/images/logo.png" class="icon">
+</hgroup>
+<form action="/signin" method="post">
+  <div class="top">
+  <p class="text">新規登録</p>
+  </div>
+  <div class="group">
+    <input type="text" name="name"><span class="highlight"></span><span class="bar"></span>
+    <label>Name</label>
+  </div>
+  <!--<div class="group">-->
+  <!--  <input type="email" name="email"><span class="highlight"></span><span class="bar"></span>-->
+  <!--  <label>Email</label>-->
+  <!--</div>-->
+  <div class="group">
+    <input type="password" name="password"><span class="highlight"></span><span class="bar"></span>
+    <label>password</label>
+  </div>
+  <div class="group">
+    <input type="password" name="password_confirmation"><span class="highlight"></span><span class="bar"></span>
+    <label>password again</label>
+  </div>
+  <input type="submit" class="opa button buttonBlue" value="Signup">
+    <!--<div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>-->
+  <p>アカウントをお持ちの場合は<a href="/signin">ログイン</a></p>
+</form>
+<footer>
+</footer>

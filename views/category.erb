@@ -1,0 +1,29 @@
+<div class="categoryk">
+<h1>新規カテゴリー作成</h1>
+  <div class="category-form">
+    <form action="/category/new" method="post">
+      <input type="text" name="name" placeholder="カテゴリー名">
+      <select name="color">
+        <option value="red">赤</option>
+        <option value="blue">青</option>
+        <option value="green">緑</option>
+        <option value="yellow">黄色</option>
+        <option value="black">黒</option>
+      </select>
+      <input id="sendbox" type="submit" value="カテゴリー作成" class="btn-flat-border">
+    </form>
+  </div>
+<h1>カテゴリー編集</h1>
+  <% if @user != nil && @categories != nil %>
+        <% @categories.each do |category|%>
+          <div class="one-category category-<%= category.color %>">
+            <!--<i class="fa-light fa-circle-o" style="color: #ff0000;"></i>-->
+            <%= category.name %>
+            <a href="/category/<%= category.id %>/edit">編集</a>
+            <form action="/categories/<%= category.id %>/delete" method="post" class="block">
+              <input type="submit" value="削除">
+            </form>
+          </div>
+        <% end %>
+  <% end %>
+</div>

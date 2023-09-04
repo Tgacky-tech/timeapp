@@ -1,0 +1,36 @@
+
+  <canvas id="myPieChart"></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+  
+  <script>
+  var ctx = document.getElementById("myPieChart");
+  var myPieChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: [
+      <% @category.each do |category|%>
+       "<%= category.name %>",
+      <% end %>
+      ],
+      datasets: [{
+        backgroundColor: [
+      <% @category
+      .each do |category|%>
+       "<%= category.color %>",
+      <% end %>
+          ],
+          data: 
+      <%= @category_id %>,
+          
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'タスクカテゴリー種類'
+      }
+    }
+  });
+  </script>
+      
+      

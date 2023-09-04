@@ -1,0 +1,276 @@
+/* ============================================================== */
+/* top */
+body{
+  height:100vh;
+}
+.top{
+  display: flex;
+  box-shadow: 0 3px 6px #8f8f8f40;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color :#ffffff;
+}
+
+.top .icon{
+  height: 50px;
+}
+
+.top a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0rem;
+  min-width: 5rem;
+  height:3rem;
+  background-color :#ffffff;
+}
+.top h {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0rem;
+  min-width: 5rem;
+  height:3rem;
+  background-color :#ffffff;
+}
+.top p {
+  justify-content: center;
+  align-items: center;
+}
+
+.top a:hover {
+  background-color: #EEEEEE;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.top .navigation-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.top .navigation-bar .navigation-bar-left {
+  display: flex;
+  gap: 2rem;
+}
+
+.top .navigation-bar .navigation-bar-right {
+  display: flex;
+  gap: 2rem;
+  margin-right: 2rem;
+}
+/* ============================================================== */
+
+/* ハンバーガーメニュー */
+
+#humMenu {
+  background: white;
+  margin-left:1rem;
+}
+ 
+#humCheck, #humClose { display:none; }
+#humOpen {
+  display: block;
+  width: 58px;
+  cursor: pointer;
+}
+
+#humOpen:hover {
+  opacity: 0.5;
+}
+
+#humOpen img { display: block; }
+#humClose, nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+#humClose {
+  z-index: 2;
+  width: 100%;
+  background: gray;
+  opacity: 0.8;
+  transition: 0.5s;
+}
+
+#humMenu nav {
+  z-index: 3;
+  width: 330px;
+  background: white;
+  transition: 0.5s;
+  transform: translateX(-100%);
+}
+
+#humCheck:checked ~ #humClose { display: block; }
+#humCheck:checked ~ nav {
+  transform: translateX(0);
+}
+
+#humMenu nav ul{
+  overflow: hidden;
+  list-style: none;
+}
+
+#humMenu nav li{
+  padding: 15px 0;
+  margin: 10px 0;
+}
+#humMenu nav li:hover{
+  opacity: 0.5;
+}
+
+#humMenu nav li a{
+  font-size: 20px;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
+
+#humMenu .ham {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+
+#humMenu .ham_line {
+	position: absolute;
+	left: 10px;
+	width: 25px;
+	height: 2px;
+	background-color: #333333;
+}
+
+#humMenu .ham_line1 {
+	top: 16px;
+}
+
+#humMenu .ham_line2 {
+	top: 24px;
+}
+
+#humMenu .ham_line3 {
+	top: 32px;
+}
+
+/* ============================================================== */
+
+/* bottom */
+.bottom {
+  display:flex;
+  height:100%;
+  width: 100%;
+}
+
+.bottom .left {
+  width:25%;
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
+
+.bottom .right {
+  width: 100%;
+}
+
+/* ============================================================== */
+
+/* eachdata */
+.eachdata {
+  background-color:#ffffff;
+  border-radius: 20px 20px 20px 20px;
+  border:2px solid #C0C0C0;
+  margin-top:5px;
+  padding: 5px 5px;
+  margin:15px 10px;
+  padding-left:20px;
+}
+
+.categoryk{
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.right{
+  background-image:url("/assets/images/simple.png"),
+  url("/assets/images/blue.jpeg");
+  background-repeat:
+      no-repeat,
+      repeat;
+  background-position:50% 50%;
+  background-size:1464px 728px;
+  background-attachment: fixed,
+                         fixed;
+  height: 100vh;
+}
+.button-container {
+      position: relative;
+      width: 40px;
+      height: 40px;
+    
+      border-radius: 50%; /* ボタンの外枠を円形にする */
+      overflow: hidden; /* 角の部分を切り取る */
+      border: 2px solid #33CC66	;
+    }
+    .cross-button {
+      width: 100%;
+      height: 100%;
+      
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.2s; /* 色の変化をアニメーションさせる */
+    }
+    .cross-button:hover {
+      background-color: #c8ffc8; /* カーソルを持ってきた時の薄緑色 */
+    }
+    .horizontal-line, .vertical-line {
+      position: absolute;
+      background-color: #33CC66	;
+      top: 50%;
+      left: 10%;
+      width: 80%;
+      height: 2px;
+      transform: translate(0, -50%);
+    }
+    .vertical-line {
+      transform: rotate(90deg);
+    }
+    .form-container {
+      display: none;
+      position: absolute;
+      top: 110px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 2px solid #333;
+    }
+    .form-container label, .form-container input {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .form-container input[type="text"] {
+      width: 100%;
+      padding: 5px;
+    }
+    .form-container button {
+      padding: 8px 15px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .button{
+      padding: 8px 15px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .display-flex{
+      display:flex;
+    }
+    .center{
+      margin: auto 0;
+    }

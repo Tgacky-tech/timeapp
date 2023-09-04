@@ -1,0 +1,274 @@
+<div class="text">
+    <div><h1>todoリスト</h1></div>
+    <p>自分好みのtodoリストを作ろう！！</p>
+</div>
+<div class=todo>
+        <div class="todo-main" onclick="tododetail1()">
+            <img src="/assets/images/things.jpg" class="todoimg">
+             <h1>things</h>
+             <p>やりたいこと</p>
+        </div>
+        <div class="todo-main">
+            <img src="/assets/images/place.jpg" class="todoimg">
+            <h1>place</h>
+            <p>行きたい場所</p>
+        </div>
+    <div class="one-todo">
+        <div class="todo-main">
+            <img src="/assets/images/food.jpg" class="todoimg">
+            <h1>food</h1>
+            <p>食べたいもの</p>
+        </div>
+    </div>
+    <div class="one-todo">
+        <div class="todo-main">
+            <img src="/assets/images/health.jpg" class="todoimg">
+            <h1>health</h1>
+            <p>健康に関すること</p>
+        </div>
+    </div>
+    <div class="one-todo">
+        <div class="todo-main">
+            <img src="/assets/images/shopping.jpg" class="todoimg">
+            <h1>shopping</h1>
+            <p>買いたいもの</p>
+        </div>
+    </div>
+    <div class="one-todo">
+            <!--<div class="button-container">-->
+            <!--<div class="cross-button" onclick="toggleForm6()"></div>-->
+            <!--<div class="horizontal-line"></div>-->
+            <!--<div class="vertical-line"></div>-->
+            <!--</div>-->
+        <div class="todo-main">
+            <img src="/assets/images/others.jpg" class="todoimg">
+            <h1>others</h1>
+            <p>その他</p>
+        </div>
+    </div>
+</div>
+
+<div class="detail-container" id="detailContainer1">
+    <div class="gray" onclick="tododetail1()">
+    </div>
+    <div class="detail-main">
+        <div class="detail-left">
+            <img src="/assets/images/things.jpg" class="detailimg">
+        </div>
+        <div class="detail-right">
+            <div class="top-detail">
+                <div class="left-border space"><h1>things</h1></div>
+                <div class="button-container">
+                    <div class="cross-button" onclick="toggleForm1()"></div>
+                    <div class="horizontal-line"></div>
+                    <div class="vertical-line"></div>
+                </div>
+            </div>
+            <div class="each-todo">
+            <% if @user != nil && @todo1 != nil %>
+            <% @todo1.each do |todo|%>
+            <div class="display-between under-line">
+            <a href="/todo/detail/<%= todo.id %>" class="todo-link">
+            
+              <p><%= todo.name %></p>
+              <p class="gray-text"><%= todo.text %></p>
+            
+            </a>
+            <div class="dropdown<%= todo.id %>">
+               <input id="tg<%= todo.id %>" class="dropInput<%= todo.id %>" type="checkbox">
+               <label for="tg<%= todo.id %>" class="dropLabel<%= todo.id %>">‥
+               </label>
+               <ul class="menu<%= todo.id %> animation<%= todo.id %>">
+                  <li><a class="item<%= todo.id %>" href="/todo/<%= todo.id %>/complete">完了</a></li>
+                  <li><a class="item<%= todo.id %>" href="/todo/<%= todo.id %>/start">作業開始</a></li>
+                  <li><a class="item<%= todo.id %>" href="/todo/<%= todo.id %>/delete">削除</a></li>
+              　</ul>
+            </div>
+            </div>
+            <style>
+.dropdown<%= todo.id %> {
+  display: inline-block;
+  }
+
+#tg<%= todo.id %> {
+  display: none;
+  }
+
+.menu<%= todo.id %> {
+  position: relative;
+  display: none;
+  opacity: 0;
+  top: -10px;
+  list-style: none;
+  }
+
+.dropInput<%= todo.id %>:checked ~ .menu<%= todo.id %> {
+  display:block;
+  opacity: 1;
+  top: 0;
+  }
+
+.dropLabel<%= todo.id %>, .item<%= todo.id %> {
+  display: block;
+  background-color: #fff;
+  text-align: center;
+  position: relative;
+  color: #333;
+  text-decoration: none;
+  padding-right: 10px;
+  padding-left: 10px;
+  }
+
+.item<%= todo.id %>:hover {
+  background-color: #3CB371;
+  color: #fff;
+  }
+
+.dropLabel<%= todo.id %>:hover, .dropInput<%= todo.id %>:checked + label {
+  opacity:0.5;
+  }
+
+.animation<%= todo.id %> {
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;
+}
+
+</style>
+            <% end %>
+            <% end %>
+            
+            <% if @user != nil && @todoc1 != nil %>
+            <% @todoc1.each do |todo|%>
+            <div class="display-between under-line">
+            <a href="/todo/detail/<%= todo.id %>" class="todo-link">
+            
+              <p class="gray-text"><%= todo.name %></p>
+              <p class="gray-text"><%= todo.text %></p>
+            
+            </a>
+            <div class="dropdown<%= todo.id %>">
+               <input id="tg<%= todo.id %>" class="dropInput<%= todo.id %>" type="checkbox">
+               <label for="tg<%= todo.id %>" class="dropLabel<%= todo.id %>">‥
+               </label>
+               <ul class="menu<%= todo.id %> animation<%= todo.id %>">
+                  <li><a class="item<%= todo.id %>" href="/todo/<%= todo.id %>/restart">再開</a></li>
+                  <li><a class="item<%= todo.id %>" href="/todo/<%= todo.id %>/delete">削除</a></li>
+              　</ul>
+            </div>
+            </div>
+            <style>
+.dropdown<%= todo.id %> {
+  display: inline-block;
+  }
+
+#tg<%= todo.id %> {
+  display: none;
+  }
+
+.menu<%= todo.id %> {
+  position: relative;
+  display: none;
+  opacity: 0;
+  top: -10px;
+  list-style: none;
+  }
+
+.dropInput<%= todo.id %>:checked ~ .menu<%= todo.id %> {
+  display:block;
+  opacity: 1;
+  top: 0;
+  }
+
+.dropLabel<%= todo.id %>, .item<%= todo.id %> {
+  display: block;
+  background-color: #fff;
+  text-align: center;
+  position: relative;
+  color: #333;
+  text-decoration: none;
+  padding-right: 10px;
+  padding-left: 10px;
+  }
+
+.item<%= todo.id %>:hover {
+  background-color: #3CB371;
+  color: #fff;
+  }
+
+.dropLabel<%= todo.id %>:hover, .dropInput<%= todo.id %>:checked + label {
+  opacity:0.5;
+  }
+
+.animation<%= todo.id %> {
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;
+}
+
+</style>
+            <% end %>
+            <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-container" id="formContainer1">
+    <form action="/todo/1/new" method="post">
+    <label for="name">名前:</label>
+    <input type="text" name="name" placeholder="作業名" class="c-form-text" />
+    <label for="text">メモ:</label>
+    <input type="text" name="text" placeholder="メモを入力してください">
+    <input type="submit" value="追加" class="button" onclick="submitForm()">
+    </form>
+</div>
+<div class="form-container" id="formContainer2">
+    <form action="/todo/2/new" method="post">
+    <label for="name">名前:</label>
+    <input type="text" name="name" placeholder="作業名" class="c-form-text" />
+    <label for="text">メモ:</label>
+    <input type="text" name="text" placeholder="メモを入力してください">
+    <input type="submit" value="追加" class="button" onclick="submitForm()">
+    </form>
+</div>
+<div class="form-container" id="formContainer3">
+    <form action="/todo/3/new" method="post">
+    <label for="name">名前:</label>
+    <input type="text" name="name" placeholder="作業名" class="c-form-text" />
+    <label for="text">メモ:</label>
+    <input type="text" name="text" placeholder="メモを入力してください">
+    <input type="submit" value="追加" class="button" onclick="submitForm()">
+    </form>
+</div>
+<div class="form-container" id="formContainer4">
+    <form action="/todo/4/new" method="post">
+    <label for="name">名前:</label>
+    <input type="text" name="name" placeholder="作業名" class="c-form-text" />
+    <label for="text">メモ:</label>
+    <input type="text" name="text" placeholder="メモを入力してください">
+    <input type="submit" value="追加" class="button" onclick="submitForm()">
+    </form>
+</div>
+<div class="form-container" id="formContainer5">
+    <form action="/todo/5/new" method="post">
+    <label for="name">名前:</label>
+    <input type="text" name="name" placeholder="作業名" class="c-form-text" />
+    <label for="text">メモ:</label>
+    <input type="text" name="text" placeholder="メモを入力してください">
+    <input type="submit" value="追加" class="button" onclick="submitForm()">
+    </form>
+</div>
+<div class="form-container" id="formContainer6">
+    <form action="/todo/6/new" method="post">
+    <label for="name">名前:</label>
+    <input type="text" name="name" placeholder="作業名" class="c-form-text" />
+    <label for="text">メモ:</label>
+    <input type="text" name="text" placeholder="メモを入力してください">
+    <input type="submit" value="追加" class="button" onclick="submitForm()">
+    </form>
+</div>
+

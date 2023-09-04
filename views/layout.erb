@@ -1,0 +1,64 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://use.fontawesome.com/releases/v6.3.0/css/all.css" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
+  <title>タイム管理アプリ</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="/assets/javascript/timedropper-jquery.js"></script>
+  <link rel="stylesheet" href="/assets/css/reset.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/index.css">
+  <link rel="stylesheet" href="/assets/css/layout.css">
+</head>
+
+<body>
+  <div class="top">
+    <div id="humMenu">
+      <input id="humCheck" type="checkbox">
+      <label id="humOpen" for="humCheck"><div class="ham">
+      <span class="ham_line ham_line1"></span>
+      <span class="ham_line ham_line2"></span>
+      <span class="ham_line ham_line3"></span></div></label>
+      <label id="humClose" for="humCheck"></label>
+      <nav>
+        <ul class="inner">
+          <li><a href="/">　ホーム</a></li>
+          <li><a href="/signup">　新規登録</a></li>
+          <li><a href="/signout">　サインアウト</a></li>
+          <li><a href="/category">　カテゴリー編集</a></li>
+          <li><a href="/signin">　ログイン</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- ここからナビゲーションバー -->
+    <div class="navigation-bar">
+      <div class="navigation-bar-left">
+        <img src="/assets/images/logo.png" class="icon">
+        <a href="/record"><i class="fa-solid fa-chart-pie" style="color: #008BBB;"></i></a>
+        <a href="/timecount"><i class="fa-solid fa-stopwatch" style="color: #008BBB;"></i></a>
+        <a href="/todo"><i class="fa-solid fa-list-check" style="color: #008BBB;"></i></a>
+        <a href="/history"><i class="fa-solid fa-book" style="color: #008BBB;"></i></a>
+      </div>
+      <div class="navigation-bar-right">
+        <!--<a href="/account">アカウント情報</a>-->
+        <% if @user != nil %>
+          <h><i class="fa-solid fa-user" style="color: #008BBB;"></i><%= @user.name %></h>
+        <% else %>
+          <a href="/signin">ログイン</a>
+        <% end %>
+      </div>
+    </div>
+    <!-- ここまでナビゲーションバー -->
+  </div>
+  <div class="bottom">
+    <div id="wrapper">
+    </div>
+    <div class="right">
+      <%= yield %>
+    </div>
+  </div>
+  <script src="/assets/javascript/javascript.js"></script>
+</body>

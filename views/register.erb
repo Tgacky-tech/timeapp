@@ -1,0 +1,15 @@
+<div class="register">
+    <div class="one-box">
+        <div class="display-flex"><h1 class="left-border"><%= @content.name %></h1><p class="gray-text center">登録日</p></div>
+        <div class="display-flex"><p class="padding-right">メモ</p><p class="memo"><%= @content.text %></p></div>
+    </div>   
+    <div class="one-box">
+        <h1 class="left-border">YouTube動画</h1><p class="margin-p">作業に関連した動画だよ！</p>
+        <div class="youtube"><iframe width="560" height="315" src="https://www.youtube.com/embed/" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    </div>
+    <div class="one-box">
+        <h1 class="left-border">ChatGpt</h1><p class="margin-p">ChatGptからのアドバイスだよ！</p>
+        
+        <%= @res %>
+    </div>
+</div>
